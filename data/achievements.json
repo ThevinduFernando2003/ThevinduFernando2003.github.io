@@ -61,7 +61,8 @@
     "organization": "Ananda College",
     "description": "Winner of the prestigious Fritz Kunz Award for academic excellence at Ananda College.",
     "media": [
-      { "type": "image", "url": "/images/fritz-kunz.svg", "caption": "Receiving the Fritz Kunz Award" }
+      { "type": "image", "url": "/images/fritz-kunz.svg", "caption": "Receiving the Fritz Kunz Award" },
+      { "type": "video", "url": "https://www.youtube.com/watch?v=4QBQeXTYpYI&t=45s", "caption": "Fritz Kunz Challenge Trophy — Full Video" }
     ]
   },
   {

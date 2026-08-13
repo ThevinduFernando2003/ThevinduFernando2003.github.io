@@ -35,3 +35,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw video source files (too large for git; host on YouTube and link instead)
+data/*.mp4

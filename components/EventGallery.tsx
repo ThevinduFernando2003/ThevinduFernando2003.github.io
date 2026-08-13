@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ImageOff, Play } from "lucide-react";
 import MediaModal from "./MediaModal";
 import type { GalleryItem, MediaItem } from "@/types";
+import { getYouTubeThumbnail } from "@/lib/youtube";
 
 type Props = {
   items: GalleryItem[];
@@ -63,7 +64,11 @@ export default function EventGallery({ items }: Props) {
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={item.url}
+                  src={
+                    item.type === "video"
+                      ? getYouTubeThumbnail(item.url) ?? item.url
+                      : item.url
+                  }
                   alt={item.caption}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onError={() =>

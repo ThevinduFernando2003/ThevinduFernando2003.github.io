@@ -4,6 +4,7 @@ import { useEffect, useCallback, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ImageOff } from "lucide-react";
 import type { MediaItem } from "@/types";
+import { getYouTubeEmbedUrl } from "@/lib/youtube";
 
 type Props = {
   media: MediaItem[];
@@ -112,6 +113,15 @@ export default function MediaModal({ media, title, open, onClose }: Props) {
             <div className="relative bg-bg">
               {failed[index] ? (
                 <MediaFallback caption={current.caption} />
+              ) : current.type === "video" && getYouTubeEmbedUrl(current.url) ? (
+                <iframe
+                  key={current.url}
+                  src={getYouTubeEmbedUrl(current.url) ?? undefined}
+                  title={current.caption}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full aspect-video max-h-[70vh] bg-black"
+                />
               ) : current.type === "video" ? (
                 <video
                   key={current.url}
