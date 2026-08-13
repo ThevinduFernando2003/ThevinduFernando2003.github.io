@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #050505;
+  --color-bg-elevated: #0c0c0c;
+  --color-bg-surface: #121212;
+  --color-border: #1f1f1f;
+  --color-border-hover: #2a2a2a;
+  --color-text: #f5f5f5;
+  --color-text-muted: #a0a0a0;
+  --color-text-dim: #6b6b6b;
+  --color-accent: #00e5ff;
+  --color-accent-dim: #00e5ff33;
+  --color-accent-glow: #00e5ff22;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-hover);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Mesh gradient animation */
+@keyframes mesh-drift {
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(8%, -6%) scale(1.05);
+  }
+  66% {
+    transform: translate(-5%, 4%) scale(0.97);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.mesh-blob {
+  animation: mesh-drift 18s ease-in-out infinite;
+}
+
+.float-el {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Masonry-ish columns */
+.masonry {
+  columns: 1;
+  column-gap: 1rem;
+}
+@media (min-width: 640px) {
+  .masonry {
+    columns: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry {
+    columns: 3;
+  }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
