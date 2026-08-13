@@ -8,6 +8,7 @@ const highlights = [
     icon: Award,
     title: "Academic Excellence",
     points: [
+      "Top 30 — Hemas AITHON 2026",
       "Z-Score +2.3010 · 4 A/L Distinctions (2022)",
       "Fritz Kunz Award — Ananda College, 2022",
       "9 Distinctions at G.C.E. O/L (2019)",
@@ -17,15 +18,17 @@ const highlights = [
     icon: Users,
     title: "Leadership",
     points: [
+      "Vice Chairman — IEEE CIS, Moratuwa Student Branch (2026/27)",
+      "Director of School Affairs — Old Anandians' Engineers' Guild",
       "Swimming Captain — Ananda College, 2021",
       "Head Prefect — Thurstan College Primary, 2013",
-      "Swimming House Captain · Maths Subject Monitor",
     ],
   },
   {
     icon: Trophy,
     title: "Athletic Pinnacle",
     points: [
+      "Swimming Colours — University of Moratuwa (2024/25)",
       "Anada Padma Award for Swimming 2020–2021",
       "1st Place — 400m Freestyle, XLVI National Sports Festival",
       "School Colours & Western Province Colours",

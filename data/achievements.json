@@ -1467,5 +1467,113 @@
     "organization": "Pentathlon Swimming Championship",
     "description": "4th Place — Pentathlon Swimming Championship (Under 10).",
     "media": []
+  },
+  {
+    "id": "157",
+    "title": "Top 30 — Hemas AITHON 2026",
+    "category": "Academics",
+    "year": "2026",
+    "organization": "Hemas",
+    "description": "Top 30 finalist at Hemas AITHON 2026, issued March 2026.",
+    "media": []
+  },
+  {
+    "id": "158",
+    "title": "Rank 71 — HackerRank Orchestrate",
+    "category": "Academics",
+    "year": "2026",
+    "organization": "HackerRank",
+    "description": "Ranked 71st in HackerRank Orchestrate, August 2026 (Message Notification Router challenge).",
+    "media": []
+  },
+  {
+    "id": "159",
+    "title": "Certificate — Supervised Machine Learning: Regression and Classification",
+    "category": "Academics",
+    "year": "2026",
+    "organization": "DeepLearning.AI (Coursera)",
+    "description": "Completed the Supervised Machine Learning: Regression and Classification certificate.",
+    "media": []
+  },
+  {
+    "id": "160",
+    "title": "Certificate — Data Science Methodology",
+    "category": "Academics",
+    "year": "2026",
+    "organization": "IBM (Coursera)",
+    "description": "Completed the Data Science Methodology certificate.",
+    "media": []
+  },
+  {
+    "id": "161",
+    "title": "Certificate — Tools for Data Science",
+    "category": "Academics",
+    "year": "2026",
+    "organization": "IBM (Coursera)",
+    "description": "Completed the Tools for Data Science certificate.",
+    "media": []
+  },
+  {
+    "id": "162",
+    "title": "Swimming Colours — University of Moratuwa",
+    "category": "Swimming",
+    "year": "2025",
+    "organization": "University of Moratuwa",
+    "description": "Swimming Colours Award, University of Moratuwa (2024/25).",
+    "media": []
+  },
+  {
+    "id": "163",
+    "title": "Vice Chairman — IEEE CIS, Moratuwa Student Branch",
+    "category": "Leadership",
+    "year": "2026",
+    "organization": "IEEE CIS, Moratuwa Student Branch",
+    "description": "Vice Chairman (2026/27) — serving on the executive committee, helping lead chapter strategy, events, and member engagement for the term. Mar 2026 – Present.",
+    "media": []
+  },
+  {
+    "id": "164",
+    "title": "Committee Member — CSE Student Society",
+    "category": "Leadership",
+    "year": "2025",
+    "organization": "CSE Student Society, University of Moratuwa",
+    "description": "Committee Member, Professional Development & Events Committee (2025/26) — supporting the planning and execution of professional development and society events.",
+    "media": []
+  },
+  {
+    "id": "165",
+    "title": "Director of School Affairs — Old Anandians' Engineers' Guild",
+    "category": "Leadership",
+    "year": "2026",
+    "organization": "Old Anandians' Engineers' Guild",
+    "description": "Director of School Affairs — coordinating engagement between the Guild and the school community. Mar 2026 – Present.",
+    "media": []
+  },
+  {
+    "id": "166",
+    "title": "Compere & Promoter — CSE Hit The Grounds",
+    "category": "Leadership",
+    "year": "2026",
+    "organization": "CSE Hit The Grounds",
+    "description": "Compere & Promoter, Media Committee — hosted the event and contributed to publicity/media efforts for the annual cricket event. January 2026.",
+    "media": []
+  },
+  {
+    "id": "167",
+    "title": "Compere & Promoter — IESL RoboGames",
+    "category": "Leadership",
+    "year": "2026",
+    "organization": "IESL RoboGames",
+    "description": "Compere & Promoter, Media Committee — hosted the event and contributed to publicity and media promotion for the robotics competition. May 2026.",
+    "media": []
+  },
+  {
+    "id": "168",
+    "title": "Participant — MoraXtreme 10.0",
+    "category": "Extra-Curricular",
+    "year": "2026",
+    "organization": "MoraXtreme",
+    "description": "Participant at MoraXtreme 10.0.",
+    "media": []
   }
 ]

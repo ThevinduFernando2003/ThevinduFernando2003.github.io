@@ -55,9 +55,10 @@ export default function About() {
               <span className="text-text-muted">Lifelong learner.</span>
             </h2>
             <p className="text-text-muted text-lg leading-relaxed">
-              I am a Semester 4 Computer Science and Engineering undergraduate
+              I am a 3rd-year Computer Science and Engineering undergraduate
               at the University of Moratuwa (2024–2028), based in Colombo,
-              Sri Lanka. I specialize in full-stack architecture, systems
+              Sri Lanka, carrying a 3.36 CGPA across my first four semesters.
+              I specialize in full-stack architecture, systems
               programming, compiler implementation, and applied machine
               learning — with active practice across{" "}
               <a
@@ -70,13 +71,21 @@ export default function About() {
               </a>{" "}
               and continuous upskilling on Kaggle.
             </p>
-            <div className="mt-8 flex gap-8 border-t border-border pt-8">
+            <div className="mt-8 flex flex-wrap gap-8 border-t border-border pt-8">
               <div>
                 <p className="font-[family-name:var(--font-display)] text-2xl font-bold text-accent">
-                  S4
+                  S5
                 </p>
                 <p className="text-xs text-text-dim mt-1 uppercase tracking-wider">
                   Semester
+                </p>
+              </div>
+              <div>
+                <p className="font-[family-name:var(--font-display)] text-2xl font-bold text-accent">
+                  3.36
+                </p>
+                <p className="text-xs text-text-dim mt-1 uppercase tracking-wider">
+                  CGPA
                 </p>
               </div>
               <div>

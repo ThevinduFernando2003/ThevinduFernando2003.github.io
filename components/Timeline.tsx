@@ -7,7 +7,7 @@ const nodes = [
     title: "BSc. (Hons) Computer Science Engineering",
     meta: "2024 – 2028 · University of Moratuwa",
     detail:
-      "Semester 4 undergraduate in the Department of Computer Science & Engineering. Focus areas: full-stack architecture, systems programming, compiler implementation, and applied machine learning.",
+      "3rd-year (Semester 5) undergraduate in the Department of Computer Science & Engineering, carrying a 3.36 CGPA across Semesters 1–4. Focus areas: full-stack architecture, systems programming, compiler implementation, and applied machine learning.",
   },
   {
     title: "CIMA Level 1 — Certificate in Business Accounting",

@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Thevindu Fernando | CSE Undergraduate & Full-Stack Developer",
   description:
-    "Portfolio of Thevindu Fernando — Semester 4 Computer Science and Engineering undergraduate at the University of Moratuwa. Specializing in full-stack architecture, compiler implementation, and applied machine learning.",
+    "Portfolio of Thevindu Fernando — 3rd-year Computer Science and Engineering undergraduate at the University of Moratuwa. Specializing in full-stack architecture, compiler implementation, and applied machine learning.",
   keywords: [
     "Thevindu Fernando",
     "University of Moratuwa",

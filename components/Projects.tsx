@@ -9,6 +9,7 @@ type Project = {
   tags: string[];
   github?: string;
   live?: string;
+  paper?: string;
   status?: string;
   accent: string;
   featured?: boolean;
@@ -73,8 +74,8 @@ const featured: Project[] = [
     title: "Cyclone Ditwah: A CSE Market Event Study",
     description:
       "Published quantitative research measuring the Colombo Stock Exchange's abnormal equity returns around Cyclone Ditwah's landfall, using event-study methodology. “An Event Study of Cyclone Ditwah's Impact on the Colombo Stock Exchange” — accepted at MERCon 2026 (Moratuwa Engineering Research Conference) and nominated for the Best Paper Award.",
-    tags: ["Python", "Pandas", "Event Study", "Quant Research"],
-    status: "Published research · MERCon 2026",
+    tags: ["Python", "Pandas", "Event Study", "MERCon 2026"],
+    paper: "/papers/cyclone-ditwah-cse-event-study.pdf",
     accent: "from-amber-500/20 to-transparent",
     featured: true,
   },
@@ -175,13 +176,20 @@ function ProjectCard({
               <Github size={15} />
               Code
             </a>
+          ) : project.paper ? (
+            <a
+              href={project.paper}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-accent transition-colors"
+              aria-label={`${project.title} — Read Paper`}
+            >
+              <FileText size={15} />
+              Read Paper
+            </a>
           ) : (
             <span className="inline-flex items-center gap-1.5 text-sm text-text-dim">
-              {project.status?.toLowerCase().includes("research") ? (
-                <FileText size={15} />
-              ) : (
-                <Lock size={15} />
-              )}
+              <Lock size={15} />
               {project.status ?? "Repo not public"}
             </span>
           )}
