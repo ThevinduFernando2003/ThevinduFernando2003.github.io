@@ -1,26 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, FileText, Github, Lock } from "lucide-react";
 
 type Project = {
   title: string;
   description: string;
   tags: string[];
-  github: string;
+  github?: string;
   live?: string;
+  status?: string;
   accent: string;
   featured?: boolean;
 };
 
 const featured: Project[] = [
   {
-    title: "AgriSenseNet",
+    title: "LearnMate AI",
     description:
-      "Cross-platform smart agricultural platform featuring interactive dashboards and mobile interfaces built with React, Flutter, and FastAPI.",
-    tags: ["React", "Flutter", "FastAPI"],
-    github: "https://github.com/ThevinduFernando2003",
+      "AI study platform for Sri Lankan legal education delivering grounded Q&A, summaries, and MCQs from dense legal PDFs. Fine-tuned Qwen 2.5 (LoRA/PEFT) on legal text with a Gemini API fallback so the system degrades gracefully instead of hard-failing. Owned the ML/fine-tuning track — dataset pipeline, LoRA setup, evaluation, and the offline MLOps lifecycle.",
+    tags: ["Python", "FastAPI", "React", "Qwen 2.5", "LangChain"],
+    status: "Private repo · Semester 5, ongoing",
+    accent: "from-violet-500/20 to-transparent",
+    featured: true,
+  },
+  {
+    title: "CeylonGuide AI",
+    description:
+      "Multilingual AI travel companion built for the SLTDA Start-Up Competition 2026, closing a real gap in Sri Lankan tourism — fragmented trip planning and no trusted way to book verified local operators. Combines conversational trip planning, crowd-aware itineraries, and a verified operator marketplace. Owned the full-stack MVP track — itinerary/crowd engine, booking flow, and admin forecast dashboard.",
+    tags: ["TypeScript", "Next.js", "FastAPI", "PostgreSQL", "Redis"],
+    github: "https://github.com/ThevinduFernando2003/CeylonGuide-AI",
+    accent: "from-cyan-500/20 to-transparent",
+    featured: true,
+  },
+  {
+    title: "MedBridge AI",
+    description:
+      "AI-powered healthcare navigator built at AgenTrix 2026, a 12-hour hackathon, with Team Dream4 — emergency response, appointment booking, medicine price comparison, and OCR-based prescription review. Implemented chat orchestration, emergency screening, RAG specialty grounding, and the Streamlit UI shell.",
+    tags: ["Python", "Streamlit", "CrewAI", "Pydantic AI", "ChromaDB"],
+    github: "https://github.com/ThevinduFernando2003/MedBridge-Dream4",
+    accent: "from-rose-500/20 to-transparent",
+    featured: true,
+  },
+  {
+    title: "AgriSenseNet (Cropwise)",
+    description:
+      "Semester 4 group project: a precision-agriculture IoT platform with a React dashboard, Flutter app, and FastAPI backend. Owned the Automation & Testing role — rain-aware smart irrigation logic, a 150+ line backend test suite, and calendar/water-analytics tooling.",
+    tags: ["React", "FastAPI", "Flutter", "Kafka", "Keycloak"],
+    github: "https://github.com/ThevinduFernando2003/agri-dashboard",
     accent: "from-emerald-500/20 to-transparent",
+    featured: true,
+  },
+  {
+    title: "ClinicPro",
+    description:
+      "Semester 3 DBMS team project: a full-stack, multi-branch clinic operations platform covering scheduling, patient registration, billing, and insurance, with role-based portals for Admin, Receptionist, Doctor, and Branch Manager. Contributed to frontend development.",
+    tags: ["MySQL", "Node.js", "Express", "Bootstrap 5", "Chart.js"],
+    github: "https://github.com/ThevinduFernando2003/Hospital-Management-System",
+    accent: "from-blue-500/20 to-transparent",
     featured: true,
   },
   {
@@ -28,16 +65,16 @@ const featured: Project[] = [
     description:
       "Fully functional lexical tokenization scanner and structural parsing suite built in C++ with custom Makefile compilation.",
     tags: ["C++", "Compilers", "Makefile"],
-    github: "https://github.com/ThevinduFernando2003",
+    status: "Coursework · repo not public",
     accent: "from-sky-500/20 to-transparent",
     featured: true,
   },
   {
-    title: "Financial Event-Study Pipeline",
+    title: "Cyclone Ditwah: A CSE Market Event Study",
     description:
-      "A data-cleaning and analytics pipeline tracking Colombo Stock Exchange equity returns against natural disaster impacts.",
-    tags: ["Python", "Pandas", "Analytics"],
-    github: "https://github.com/ThevinduFernando2003",
+      "Published quantitative research measuring the Colombo Stock Exchange's abnormal equity returns around Cyclone Ditwah's landfall, using event-study methodology. “An Event Study of Cyclone Ditwah's Impact on the Colombo Stock Exchange” — accepted at MERCon 2026 (Moratuwa Engineering Research Conference) and nominated for the Best Paper Award.",
+    tags: ["Python", "Pandas", "Event Study", "Quant Research"],
+    status: "Published research · MERCon 2026",
     accent: "from-amber-500/20 to-transparent",
     featured: true,
   },
@@ -51,14 +88,6 @@ const githubProjects: Project[] = [
     tags: ["C", "Operating Systems", "Pintos"],
     github: "https://github.com/ThevinduFernando2003/pintos-project",
     accent: "from-violet-500/20 to-transparent",
-  },
-  {
-    title: "Code Problems",
-    description:
-      "Competitive programming and algorithm practice problems implemented in C++, covering data structures and problem-solving patterns.",
-    tags: ["C++", "Algorithms", "DSA"],
-    github: "https://github.com/ThevinduFernando2003/Code-Problems",
-    accent: "from-cyan-500/20 to-transparent",
   },
   {
     title: "Side Game",
@@ -83,14 +112,6 @@ const githubProjects: Project[] = [
     tags: ["Python", "Kaggle", "ML", "Pandas"],
     github: "https://github.com/ThevinduFernando2003/python-machine-learning",
     accent: "from-indigo-500/20 to-transparent",
-  },
-  {
-    title: "Codewars Practice",
-    description:
-      "Kata solutions and coding practice problems in Python for sharpening algorithmic thinking and language fluency.",
-    tags: ["Python", "Codewars"],
-    github: "https://github.com/ThevinduFernando2003/Codewars",
-    accent: "from-orange-500/20 to-transparent",
   },
 ];
 
@@ -143,16 +164,27 @@ function ProjectCard({
           ))}
         </div>
         <div className="mt-6 flex items-center gap-4 border-t border-border pt-4">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-accent transition-colors"
-            aria-label={`${project.title} GitHub`}
-          >
-            <Github size={15} />
-            Code
-          </a>
+          {project.github ? (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-accent transition-colors"
+              aria-label={`${project.title} GitHub`}
+            >
+              <Github size={15} />
+              Code
+            </a>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 text-sm text-text-dim">
+              {project.status?.toLowerCase().includes("research") ? (
+                <FileText size={15} />
+              ) : (
+                <Lock size={15} />
+              )}
+              {project.status ?? "Repo not public"}
+            </span>
+          )}
           {project.live && (
             <a
               href={project.live}

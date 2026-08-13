@@ -24,7 +24,7 @@ const nodes = [
     title: "G.C.E. Advanced Level",
     meta: "2022 (Jan. 2023) · English Medium · Index 2044668",
     detail:
-      "Physics (A), Chemistry (A), Combined Mathematics (A), General English (A). Common General Test: 088. Z-Score: +2.5049.",
+      "Physics (A), Chemistry (A), Combined Mathematics (A), General English (A). Common General Test: 088. Z-Score: +2.3010.",
   },
   {
     title: "Daham Pasal Final Certificate Examination",
