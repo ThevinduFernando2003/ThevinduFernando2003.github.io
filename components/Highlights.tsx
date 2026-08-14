@@ -9,7 +9,7 @@ const highlights = [
     title: "Academic Excellence",
     points: [
       "Top 30 — Hemas AITHON 2026",
-      "Z-Score +2.3010 · 4 A/L Distinctions (2022)",
+      "Z-Score +2.5049 · 4 A/L Distinctions (2022)",
       "Fritz Kunz Award — Ananda College, 2022",
       "9 Distinctions at G.C.E. O/L (2019)",
     ],
