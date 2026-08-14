@@ -11,15 +11,29 @@ import {
 import MediaModal from "./MediaModal";
 import type { Achievement, AchievementCategory } from "@/types";
 
-const FILTERS = [
+const ERAS = ["University", "School"] as const;
+type Era = (typeof ERAS)[number];
+
+const UNIVERSITY_START_YEAR = 2024;
+
+const SCHOOL_FILTERS = [
   "All",
   "Academics",
   "Leadership",
-  "Swimming",
+  "Sports",
   "Extra-Curricular",
 ] as const;
+type SchoolFilter = (typeof SCHOOL_FILTERS)[number];
 
-type Filter = (typeof FILTERS)[number];
+const SCHOOL_FILTER_CATEGORY: Record<
+  Exclude<SchoolFilter, "All">,
+  AchievementCategory
+> = {
+  Academics: "Academics",
+  Leadership: "Leadership",
+  Sports: "Swimming",
+  "Extra-Curricular": "Extra-Curricular",
+};
 
 const PAGE_SIZE = 10;
 
@@ -28,17 +42,30 @@ type Props = {
 };
 
 export default function AchievementDataTable({ achievements }: Props) {
+  const [era, setEra] = useState<Era>("University");
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<Filter>("All");
+  const [filter, setFilter] = useState<SchoolFilter>("All");
   const [page, setPage] = useState(1);
   const [mediaTarget, setMediaTarget] = useState<Achievement | null>(null);
 
+  const eraAchievements = useMemo(
+    () =>
+      achievements.filter((a) =>
+        era === "University"
+          ? Number(a.year) >= UNIVERSITY_START_YEAR
+          : Number(a.year) < UNIVERSITY_START_YEAR
+      ),
+    [achievements, era]
+  );
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return achievements
+    return eraAchievements
       .filter((a) => {
         const matchesFilter =
-          filter === "All" || a.category === (filter as AchievementCategory);
+          era === "University" ||
+          filter === "All" ||
+          a.category === SCHOOL_FILTER_CATEGORY[filter as Exclude<SchoolFilter, "All">];
         const matchesQuery =
           !q ||
           a.title.toLowerCase().includes(q) ||
@@ -48,7 +75,7 @@ export default function AchievementDataTable({ achievements }: Props) {
         return matchesFilter && matchesQuery;
       })
       .sort((a, b) => Number(b.year) - Number(a.year) || a.title.localeCompare(b.title));
-  }, [achievements, filter, query]);
+  }, [eraAchievements, era, filter, query]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
@@ -57,7 +84,13 @@ export default function AchievementDataTable({ achievements }: Props) {
     currentPage * PAGE_SIZE
   );
 
-  const changeFilter = (f: Filter) => {
+  const changeEra = (e: Era) => {
+    setEra(e);
+    setFilter("All");
+    setPage(1);
+  };
+
+  const changeFilter = (f: SchoolFilter) => {
     setFilter(f);
     setPage(1);
   };
@@ -95,23 +128,43 @@ export default function AchievementDataTable({ achievements }: Props) {
         </div>
       </div>
 
-      {/* Filter tabs */}
-      <div className="mb-6 flex flex-wrap gap-2">
-        {FILTERS.map((f) => (
+      {/* Era toggle */}
+      <div className="mb-4 flex flex-wrap gap-2">
+        {ERAS.map((e) => (
           <button
-            key={f}
+            key={e}
             type="button"
-            onClick={() => changeFilter(f)}
-            className={`px-3.5 py-1.5 text-xs tracking-wide transition-colors border ${
-              filter === f
+            onClick={() => changeEra(e)}
+            className={`px-4 py-2 text-sm font-medium tracking-wide transition-colors border ${
+              era === e
                 ? "border-accent bg-accent text-bg"
                 : "border-border text-text-muted hover:border-accent/50 hover:text-accent"
             }`}
           >
-            {f}
+            {e === "University" ? "University (2024–2028)" : "School"}
           </button>
         ))}
       </div>
+
+      {/* Category filter tabs — School only */}
+      {era === "School" && (
+        <div className="mb-6 flex flex-wrap gap-2">
+          {SCHOOL_FILTERS.map((f) => (
+            <button
+              key={f}
+              type="button"
+              onClick={() => changeFilter(f)}
+              className={`px-3.5 py-1.5 text-xs tracking-wide transition-colors border ${
+                filter === f
+                  ? "border-accent bg-accent text-bg"
+                  : "border-border text-text-muted hover:border-accent/50 hover:text-accent"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Table */}
       <div className="overflow-x-auto border border-border">
@@ -169,7 +222,7 @@ export default function AchievementDataTable({ achievements }: Props) {
                       </td>
                       <td className="px-4 py-3.5">
                         <span className="inline-block border border-border px-2 py-0.5 text-xs text-text-muted">
-                          {row.category}
+                          {row.category === "Swimming" ? "Sports" : row.category}
                         </span>
                       </td>
                       <td className="px-4 py-3.5 text-text-muted text-xs">

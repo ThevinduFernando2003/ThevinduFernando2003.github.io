@@ -1,51 +1,9 @@
 [
   {
-    "id": "g1",
-    "type": "image",
-    "url": "/images/fritz-kunz.svg",
-    "caption": "Receiving the Fritz Kunz Award — Ananda College, 2022",
-    "category": "Academics"
-  },
-  {
     "id": "g1v",
     "type": "video",
     "url": "https://www.youtube.com/watch?v=4QBQeXTYpYI&t=45s",
     "caption": "Fritz Kunz Challenge Trophy — Full Video",
-    "category": "Academics"
-  },
-  {
-    "id": "g2",
-    "type": "image",
-    "url": "/images/national-sports-gold.svg",
-    "caption": "Gold — 400m Freestyle, XLVI National Sports Festival",
-    "category": "Swimming"
-  },
-  {
-    "id": "g3",
-    "type": "image",
-    "url": "/images/anada-padma.svg",
-    "caption": "Anada Padma Award for Swimming 2020–2021",
-    "category": "Swimming"
-  },
-  {
-    "id": "g4",
-    "type": "image",
-    "url": "/images/swimming-captain.svg",
-    "caption": "Swimming Captain — Ananda College, 2021",
-    "category": "Leadership"
-  },
-  {
-    "id": "g5",
-    "type": "image",
-    "url": "/images/head-prefect.svg",
-    "caption": "Head Prefect — Thurstan College Primary, 2013",
-    "category": "Leadership"
-  },
-  {
-    "id": "g6",
-    "type": "image",
-    "url": "/images/science-society.svg",
-    "caption": "Academic excellence & school colours ceremonies",
     "category": "Academics"
   }
 ]

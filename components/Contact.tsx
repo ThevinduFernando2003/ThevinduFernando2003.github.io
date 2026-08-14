@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Send } from "lucide-react";
+import { BookOpen, Github, Linkedin, Send } from "lucide-react";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
@@ -59,6 +59,16 @@ export default function Contact() {
               >
                 <Linkedin size={18} />
                 LinkedIn
+              </a>
+              <a
+                href="https://medium.com/@thevindufernando0315"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border px-4 py-2.5 text-sm text-text-muted hover:border-accent hover:text-accent transition-colors"
+                aria-label="Medium"
+              >
+                <BookOpen size={18} />
+                Medium
               </a>
             </div>
           </motion.div>
